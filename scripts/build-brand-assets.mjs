@@ -97,9 +97,15 @@ async function main() {
   const original = await readFile(logoPath);
   const logo = await sharp(original).trim().png().toBuffer();
 
-  await sharp(logo).resize(96, 32, { fit: "contain" }).png()
+  await sharp(logo).resize(96, 32, {
+    fit: "contain",
+    background: { r: 0, g: 0, b: 0, alpha: 0 },
+  }).png()
     .toFile(path.join(outputDirectory, "logo-mark.png"));
-  await sharp(logo).resize(192, 64, { fit: "contain" }).png()
+  await sharp(logo).resize(192, 64, {
+    fit: "contain",
+    background: { r: 0, g: 0, b: 0, alpha: 0 },
+  }).png()
     .toFile(path.join(outputDirectory, "logo-mark@2x.png"));
   if (path.extname(logoPath).toLowerCase() === ".svg") {
     await copyFile(logoPath, path.join(outputDirectory, "logo-mark.svg"));
