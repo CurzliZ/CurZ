@@ -1,0 +1,33 @@
+name: CurZ CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install project dependencies
+        run: npm run setup
+      - name: Frontend type-check
+        run: npm run typecheck
+      - name: Frontend lint
+        run: npm run lint
+      - name: Frontend unit tests
+        run: npm --prefix frontend run test
+      - name: Backend tests
+        run: backend\.venv\Scripts\python.exe -m pytest backend
+      - name: Frontend production build
+        run: npm run build
+      - name: MockProvider evaluation (mock results)
+        env:
+          CURZ_EVAL_PROVIDER: mock
+        run: npm run eval

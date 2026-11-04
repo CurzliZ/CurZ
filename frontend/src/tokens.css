@@ -1,0 +1,134 @@
+:root {
+  --background: #0b0d12;
+  --surface: #11141b;
+  --raised: #171b24;
+  --border: #232836;
+  --foreground: #e8eaf0;
+  --muted-foreground: #8b93a7;
+  --faint-foreground: #5a6275;
+  --disabled-foreground: #858da0;
+  --primary: #7c83ff;
+  --primary-foreground: #0b0d12;
+  --accent-glow: 0 0 0 4px rgb(124 131 255 / 14%), 0 0 28px rgb(124 131 255 / 12%);
+  --destructive: #f0657d;
+  --font-ui: "Inter Variable", sans-serif;
+  --font-reading: "Newsreader Variable", serif;
+  --font-code: "JetBrains Mono Variable", monospace;
+
+  --relationship-supports: #2dd4bf;
+  --relationship-extends: #a78bfa;
+  --relationship-example: #60a5fa;
+  --relationship-depends: #94a3b8;
+  --relationship-inspired: #f472b6;
+  --relationship-tension: #f0657d;
+  --cluster-1: #8b92d6;
+  --cluster-2: #6e9c9b;
+  --cluster-3: #9390b0;
+  --cluster-4: #8092a8;
+  --cluster-5: #b08e9d;
+  --graph-node-selected: #aab0ff;
+  --graph-node-dim: rgb(90 98 117 / 24%);
+  --graph-node-backdrop: rgb(124 131 255 / 10%);
+  --graph-node-glow: rgb(124 131 255 / 18%);
+  --graph-edge-explicit: rgb(139 147 167 / 42%);
+  --graph-edge-semantic: #60a5fa;
+  --graph-edge-dim: rgb(90 98 117 / 8%);
+  --graph-edge-transparent: rgb(0 0 0 / 0%);
+  --brain-inset-highlight: inset 0 1px 0 rgb(255 255 255 / 2%);
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  --radius-token-sm: 8px;
+  --radius-token-md: 12px;
+  --radius-token-lg: 16px;
+  --shadow-raised: 0 8px 24px rgb(0 0 0 / 18%);
+  --shadow-layered: 0 14px 38px rgb(0 0 0 / 24%), 0 2px 8px rgb(0 0 0 / 16%);
+  --transition-ui: 180ms cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  --card: var(--surface);
+  --card-foreground: var(--foreground);
+  --popover: var(--raised);
+  --popover-foreground: var(--foreground);
+  --secondary: var(--raised);
+  --secondary-foreground: var(--foreground);
+  --muted: var(--raised);
+  --input: var(--border);
+  --ring: var(--primary);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --background: #faf8f4;
+  --surface: #ffffff;
+  --raised: #f3f0ea;
+  --border: #e4dfd6;
+  --foreground: #1a1c23;
+  --muted-foreground: #626a7c;
+  --faint-foreground: #737b8d;
+  --disabled-foreground: #626a7c;
+  --primary: #555ce6;
+  --primary-foreground: #ffffff;
+  --accent-glow: 0 0 0 4px rgb(85 92 230 / 12%), 0 0 24px rgb(85 92 230 / 10%);
+  --destructive: #b83e56;
+  --cluster-1: #555ce6;
+  --cluster-2: #2c837c;
+  --cluster-3: #7663a2;
+  --cluster-4: #526c87;
+  --cluster-5: #966276;
+  --graph-node-selected: #4249c4;
+  --graph-node-dim: rgb(98 106 124 / 24%);
+  --graph-node-backdrop: rgb(85 92 230 / 10%);
+  --graph-node-glow: rgb(85 92 230 / 18%);
+  --graph-edge-explicit: rgb(98 106 124 / 42%);
+  --graph-edge-semantic: #3b82b9;
+  --graph-edge-dim: rgb(98 106 124 / 8%);
+  --graph-edge-transparent: rgb(0 0 0 / 0%);
+  --brain-inset-highlight: inset 0 1px 0 rgb(0 0 0 / 2%);
+  --shadow-raised: 0 8px 24px rgb(38 32 22 / 7%);
+  --shadow-layered: 0 14px 38px rgb(38 32 22 / 10%), 0 2px 8px rgb(38 32 22 / 5%);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-border: var(--border);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-faint-foreground: var(--faint-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --color-rel-supports: var(--relationship-supports);
+  --color-rel-extends: var(--relationship-extends);
+  --color-rel-example: var(--relationship-example);
+  --color-rel-depends: var(--relationship-depends);
+  --color-rel-inspired: var(--relationship-inspired);
+  --color-rel-tension: var(--relationship-tension);
+  --font-sans: "Inter Variable", sans-serif;
+  --font-serif: "Newsreader Variable", serif;
+  --font-mono: "JetBrains Mono Variable", monospace;
+  --spacing: var(--space-1);
+  --radius-sm: var(--radius-token-sm);
+  --radius-md: var(--radius-token-md);
+  --radius-lg: var(--radius-token-lg);
+  --shadow-panel: var(--shadow-raised);
+  --shadow-overlay: var(--shadow-layered);
+}

@@ -1,0 +1,27 @@
+.notes-search-input { height: 34px; margin: 0 0 var(--space-2); font-size: 12px; }
+
+.note-tag-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: var(--space-2);
+}
+
+.note-tag-filter {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  padding: 4px 8px;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.note-tag-filter:hover,
+.note-tag-filter.is-active {
+  border-color: color-mix(in srgb, var(--primary) 40%, var(--border));
+  background: color-mix(in srgb, var(--primary) 10%, var(--surface));
+  color: var(--foreground);
+}
+
+.note-list-message { padding: var(--space-3); color: var(--muted-foreground); font-size: 11px; }

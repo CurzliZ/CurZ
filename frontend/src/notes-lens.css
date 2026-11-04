@@ -1,0 +1,159 @@
+.lens-links {
+  display: grid;
+  width: 100%;
+  gap: var(--space-5);
+}
+
+.lens-links section {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.lens-links h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lens-links h3 span {
+  font-family: var(--font-code);
+  font-weight: 400;
+}
+
+.lens-link-item {
+  display: grid;
+  min-width: 0;
+  gap: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-token-sm);
+  background: var(--raised);
+  padding: var(--space-2) var(--space-3);
+  color: var(--foreground);
+  cursor: pointer;
+  text-align: left;
+}
+
+.lens-link-item:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--primary) 45%, var(--border));
+}
+
+.lens-link-item:disabled {
+  color: var(--muted-foreground);
+  cursor: default;
+}
+
+.lens-link-item span {
+  overflow: hidden;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lens-link-item small {
+  color: var(--faint-foreground);
+  font-size: 9px;
+}
+
+.lens-link-item.is-unresolved {
+  border-style: dashed;
+  border-color: color-mix(in srgb, var(--relationship-tension) 35%, var(--border));
+}
+
+.lens-links-wrap {
+  display: grid;
+  width: 100%;
+  gap: var(--space-4);
+}
+
+.manual-relationship {
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-3);
+}
+
+.manual-relationship > summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--muted-foreground);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.manual-relationship form,
+.manual-relationship label {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.manual-relationship form {
+  margin-top: var(--space-3);
+}
+
+.manual-relationship label {
+  color: var(--muted-foreground);
+  font-size: 11px;
+}
+
+.manual-relationship select,
+.manual-relationship textarea {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-token-sm);
+  background: var(--surface);
+  padding: var(--space-2);
+  color: var(--foreground);
+  font: inherit;
+}
+
+.manual-relationship textarea {
+  min-height: 54px;
+  resize: vertical;
+}
+
+.manual-relationship-help {
+  margin: 0;
+  color: var(--faint-foreground);
+  font-size: 10px;
+}
+
+.lens-selected-relationship {
+  display: grid;
+  gap: var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-token-md);
+  background: var(--raised);
+  padding: var(--space-3);
+}
+
+.lens-selected-relationship h3,
+.lens-selected-relationship p {
+  margin: 0;
+}
+
+.lens-relation-notes {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.lens-relation-notes button {
+  display: grid;
+  gap: 4px;
+  border: 0;
+  border-left: 2px solid var(--primary);
+  background: var(--surface);
+  padding: var(--space-2);
+  color: var(--foreground);
+  text-align: left;
+  cursor: pointer;
+}
+
+.lens-relation-notes q {
+  color: var(--muted-foreground);
+  font-size: 11px;
+}

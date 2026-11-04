@@ -1,0 +1,222 @@
+.sample-vault-gate,
+.phase13-card,
+.trust-empty-state,
+.trust-run-summary,
+.trust-metric-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-token-md);
+  background: var(--surface);
+}
+
+.sample-vault-gate {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+  padding: var(--space-4);
+}
+
+.sample-vault-gate p,
+.sample-vault-gate small {
+  margin: 0;
+  color: var(--muted-foreground);
+}
+
+.sample-vault-gate small {
+  font-size: 12px;
+}
+
+.phase13-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+  padding: var(--space-6);
+}
+
+.phase13-card h2 {
+  margin: var(--space-1) 0;
+  font-family: var(--font-reading);
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.phase13-card p {
+  max-width: 720px;
+  color: var(--muted-foreground);
+  line-height: 1.65;
+}
+
+.phase13-status {
+  overflow-wrap: anywhere;
+}
+
+.phase13-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: start;
+  align-items: center;
+  justify-content: end;
+  gap: var(--space-3);
+}
+
+.phase13-report-link,
+.trust-back-link {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.trust-report-page {
+  width: min(1120px, calc(100% - 2 * var(--space-6)));
+  margin: 0 auto;
+  padding: clamp(32px, 7vw, 88px) 0;
+}
+
+.trust-loading {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.trust-loading-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: var(--space-4);
+}
+
+.trust-report-header {
+  margin-bottom: var(--space-6);
+}
+
+.trust-report-header h1 {
+  margin: var(--space-2) 0;
+  font-family: var(--font-reading);
+  font-size: clamp(36px, 6vw, 56px);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+
+.trust-report-header > p:last-child {
+  color: var(--muted-foreground);
+}
+
+.trust-run-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  padding: var(--space-5);
+}
+
+.trust-run-summary div {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.trust-run-summary span,
+.trust-metric-card small {
+  display: block;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.trust-metric-card small + small {
+  margin-top: var(--space-1);
+}
+
+.trust-run-summary strong {
+  overflow-wrap: anywhere;
+}
+
+.trust-mock-banner {
+  border: 1px solid var(--relationship-example);
+  border-radius: var(--radius-token-sm);
+  background: color-mix(in srgb, var(--relationship-example) 10%, var(--surface));
+  padding: var(--space-3) var(--space-4);
+}
+
+.trust-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+}
+
+.trust-metric-card {
+  padding: var(--space-5);
+}
+
+.trust-metric-heading {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.trust-metric-heading svg {
+  flex: 0 0 auto;
+  color: var(--primary);
+}
+
+.trust-metric-heading h2 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.trust-metric-value {
+  display: block;
+  margin: var(--space-4) 0;
+  font-variant-numeric: tabular-nums;
+  font-size: 38px;
+  letter-spacing: -0.04em;
+}
+
+.trust-metric-card p {
+  min-height: 4.5em;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+}
+
+.trust-empty-state {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-3);
+  max-width: 680px;
+  margin: var(--space-8) auto;
+  padding: clamp(24px, 5vw, 48px);
+}
+
+.trust-empty-state h2,
+.trust-empty-state p {
+  margin: 0;
+}
+
+.trust-empty-state p {
+  color: var(--muted-foreground);
+  line-height: 1.6;
+}
+
+.trust-empty-state code {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-token-sm);
+  background: var(--raised);
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-mono);
+}
+
+.trust-icon {
+  color: var(--primary);
+}
+
+@media (max-width: 720px) {
+  .phase13-card {
+    grid-template-columns: 1fr;
+  }
+
+  .phase13-actions {
+    justify-content: start;
+  }
+
+  .trust-metric-card p {
+    min-height: 0;
+  }
+}

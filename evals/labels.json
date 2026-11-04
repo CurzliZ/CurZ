@@ -1,0 +1,41 @@
+{
+  "relations": [
+    {
+      "source": "machine-learning/Learning-rate.md",
+      "target": "machine-learning/Regularization.md",
+      "type": "extends"
+    },
+    {
+      "source": "startup/Customer-interviews.md",
+      "target": "startup/Discovery-loop.md",
+      "type": "supports"
+    }
+  ],
+  "tensions": [
+    {
+      "source": "machine-learning/More-data.md",
+      "target": "machine-learning/Noisy-labels.md",
+      "type": "tension"
+    }
+  ],
+  "ask_questions": [
+    {
+      "question": "What does regularization do to overfitting?",
+      "expected_supporting_notes": ["machine-learning/Regularization.md"],
+      "unanswerable": false
+    },
+    {
+      "question": "Why can more data fail to help when labels are noisy?",
+      "expected_supporting_notes": [
+        "machine-learning/More-data.md",
+        "machine-learning/Noisy-labels.md"
+      ],
+      "unanswerable": false
+    },
+    {
+      "question": "What is the founder's favorite color?",
+      "expected_supporting_notes": [],
+      "unanswerable": true
+    }
+  ]
+}

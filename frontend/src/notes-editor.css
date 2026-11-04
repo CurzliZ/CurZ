@@ -1,0 +1,247 @@
+.note-editor-pane {
+  display: flex;
+  width: min(100%, 960px);
+  min-height: calc(100svh - 68px);
+  flex-direction: column;
+  margin: 0 auto;
+  padding: var(--space-5) clamp(20px, 5vw, 64px) var(--space-6);
+}
+
+.editor-toolbar,
+.editor-actions,
+.note-tag-editor,
+.note-tag-list {
+  display: flex;
+  align-items: center;
+}
+
+.editor-toolbar {
+  min-height: 36px;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.editor-actions {
+  gap: var(--space-1);
+}
+
+.save-state {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted-foreground);
+  font-family: var(--font-code);
+  font-size: 10px;
+}
+
+.save-state--saved {
+  color: var(--relationship-supports);
+}
+
+.save-state--error {
+  color: var(--destructive);
+}
+
+.save-spinner {
+  animation: save-spin 900ms linear infinite;
+}
+
+@keyframes save-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.editor-error {
+  margin: var(--space-2) 0 0;
+  border-radius: var(--radius-token-sm);
+  background: color-mix(in srgb, var(--destructive) 8%, var(--surface));
+  padding: var(--space-2) var(--space-3);
+}
+
+.note-title-input {
+  height: auto;
+  margin-top: var(--space-8);
+  border-color: transparent;
+  padding: 0;
+  color: var(--foreground);
+  font-family: var(--font-reading);
+  font-size: clamp(32px, 5vw, 44px);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+  box-shadow: none;
+}
+
+.note-title-input:focus-visible {
+  border-color: var(--border);
+  box-shadow: none;
+}
+
+.note-tag-editor {
+  min-height: 42px;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  color: var(--muted-foreground);
+}
+
+.note-tag-list {
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.note-tag {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--raised);
+  padding: 4px 8px;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.note-tag:hover {
+  border-color: var(--destructive);
+  color: var(--destructive);
+}
+
+.tag-input {
+  width: 116px;
+  height: 28px;
+  border-color: transparent;
+  padding-inline: 4px;
+  font-size: 11px;
+}
+
+.markdown-editor {
+  min-height: 360px;
+  flex: 1;
+  margin-top: var(--space-4);
+}
+
+.markdown-editor-loading {
+  min-height: 360px;
+}
+
+.markdown-editor .cm-editor {
+  min-height: 360px;
+  background: transparent;
+  color: var(--foreground);
+  font-size: 16px;
+}
+
+.markdown-editor .cm-scroller {
+  overflow: visible;
+  font-family: var(--font-reading);
+  line-height: 1.7;
+}
+
+.markdown-editor .cm-content {
+  max-width: 70ch;
+  padding: var(--space-3) 0 var(--space-8);
+  caret-color: var(--primary);
+}
+
+.markdown-editor .cm-line {
+  padding: 0;
+}
+
+.markdown-editor .cm-activeLine {
+  background: transparent;
+}
+
+.markdown-editor .cm-markdown-marker {
+  opacity: 0.3;
+  transition: opacity var(--transition-ui);
+}
+
+.markdown-editor .cm-activeLine .cm-markdown-marker {
+  opacity: 1;
+}
+
+.markdown-editor .cm-wikilink {
+  border-bottom: 1px solid color-mix(in srgb, var(--relationship-supports) 60%, transparent);
+  color: var(--relationship-supports);
+  cursor: pointer;
+}
+
+.markdown-editor .cm-wikilink-unresolved {
+  border-bottom-style: dashed;
+  border-bottom-color: var(--relationship-tension);
+  color: var(--relationship-tension);
+}
+
+.markdown-editor .cm-task-checkbox {
+  color: var(--primary);
+  font-family: var(--font-code);
+  font-weight: 650;
+}
+
+.markdown-editor .cm-cursor {
+  border-left-color: var(--primary);
+}
+
+.editor-footnote {
+  margin: var(--space-3) 0 0;
+  color: var(--faint-foreground);
+  font-size: 10px;
+}
+
+.editor-footnote code {
+  font-family: var(--font-code);
+  color: var(--muted-foreground);
+}
+
+.editor-loading,
+.editor-empty {
+  display: grid;
+  min-height: 50vh;
+  align-content: center;
+  justify-items: center;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  color: var(--muted-foreground);
+  text-align: center;
+}
+
+.editor-empty p {
+  margin: 0;
+}
+
+.editor-hint {
+  margin: var(--space-3);
+}
+
+@media (max-width: 760px) {
+  .notes-layout {
+    min-height: calc(100svh - 136px);
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .notes-list-panel {
+    max-height: 320px;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+    padding: var(--space-3);
+  }
+
+  .note-list {
+    max-height: 180px;
+    flex: 0 1 auto;
+  }
+
+  .note-editor-pane {
+    min-height: 550px;
+    padding: var(--space-4);
+  }
+
+  .note-title-input {
+    margin-top: var(--space-5);
+  }
+
+  .vault-actions {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "status": "completed",
+  "date": "2026-11-03T18:26:26.774973+00:00",
+  "config": {
+    "provider": "ollama",
+    "model": "qwen3:8b",
+    "embedding_model": "",
+    "timeout_seconds": 90.0,
+    "ollama_host": "127.0.0.1:11434"
+  },
+  "mock": false,
+  "metrics": {
+    "raw_quote_fabrication": {
+      "rate": 0.10526315789473684,
+      "numerator": 2,
+      "denominator": 19
+    },
+    "post_verification_citation_validity": {
+      "rate": 1.0,
+      "numerator": 25,
+      "denominator": 25
+    },
+    "relationship_precision": {
+      "rate": 0.3333333333333333,
+      "numerator": 1,
+      "denominator": 3
+    },
+    "relationship_recall": {
+      "rate": 0.3333333333333333,
+      "numerator": 1,
+      "denominator": 3
+    },
+    "ask_retrieval_hit_at_k": {
+      "rate": 1.0,
+      "numerator": 2,
+      "denominator": 2,
+      "k": 8
+    },
+    "unanswerable_question_honesty": {
+      "rate": 1.0,
+      "numerator": 1,
+      "denominator": 1
+    }
+  },
+  "counts": {
+    "evaluation_notes": 6,
+    "raw_quotes": 19,
+    "fabricated_quotes": 2,
+    "verified_citations": 25,
+    "predicted_relationships": 3,
+    "labeled_relationships": 3,
+    "answerable_questions": 2,
+    "unanswerable_questions": 1
+  }
+}
