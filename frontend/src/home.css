@@ -69,11 +69,128 @@
   font-size: 11px;
 }
 
-.home-page { width: min(100%, 1080px); margin: 0 auto; padding: clamp(var(--space-5), 4vw, var(--space-10)); }
-.home-welcome { margin-bottom: var(--space-6); }
-.home-welcome .eyebrow { margin: 0 0 var(--space-2); color: var(--primary); font-size: 10px; font-weight: 650; letter-spacing: 0.12em; text-transform: uppercase; }
-.home-welcome h1 { margin: 0; font-family: var(--font-reading); font-size: clamp(31px, 5vw, 43px); font-weight: 480; letter-spacing: -0.035em; }
-.home-welcome > p:last-child { margin: var(--space-2) 0 0; color: var(--muted-foreground); line-height: 1.6; }
+.home-page { width: min(100%, 1160px); margin: 0 auto; padding: clamp(var(--space-5), 3vw, var(--space-8)); }
+.home-welcome {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.76fr);
+  align-items: center;
+  gap: clamp(var(--space-6), 6vw, 76px);
+  margin-bottom: clamp(var(--space-6), 5vw, 56px);
+}
+.home-welcome-copy { min-width: 0; }
+.home-welcome .home-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 var(--space-4);
+  color: var(--muted-foreground);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.home-eyebrow-mark {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--relationship-supports);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--relationship-supports) 55%, transparent);
+}
+.home-welcome h1 {
+  margin: 0;
+  font-family: var(--font-reading);
+  font-size: clamp(39px, 4.7vw, 52px);
+  font-weight: 470;
+  letter-spacing: -0.045em;
+  line-height: 1.02;
+}
+.home-welcome h1 span { color: var(--primary); }
+.home-welcome-copy > p:not(.eyebrow) {
+  max-width: 480px;
+  margin: var(--space-4) 0 0;
+  color: var(--muted-foreground);
+  font-size: 14px;
+  line-height: 1.75;
+}
+.home-welcome-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+.home-brain-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--foreground);
+  font-size: 12px;
+  font-weight: 580;
+  transition: color var(--transition-ui), gap var(--transition-ui);
+}
+.home-brain-link svg { color: var(--primary); }
+.home-brain-link:hover { gap: var(--space-3); color: var(--primary); }
+.home-private-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted-foreground);
+  font-size: 11px;
+}
+.home-private-note svg { color: var(--relationship-supports); }
+.home-constellation {
+  position: relative;
+  min-width: 0;
+  min-height: 236px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--primary) 18%, var(--border));
+  border-radius: 24px;
+  background:
+    radial-gradient(ellipse at 58% 48%, color-mix(in srgb, var(--primary) 13%, transparent), transparent 56%),
+    color-mix(in srgb, var(--surface) 92%, var(--background));
+  box-shadow: var(--shadow-raised);
+}
+.home-constellation::before {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(color-mix(in srgb, var(--muted-foreground) 25%, transparent) 0.7px, transparent 0.7px);
+  background-size: 17px 17px;
+  content: "";
+  mask-image: linear-gradient(90deg, transparent, black 18%, black 82%, transparent);
+  opacity: 0.32;
+}
+.constellation-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
+.constellation-lines path { stroke: color-mix(in srgb, var(--primary) 44%, var(--border)); stroke-width: 1.15; }
+.constellation-lines .constellation-line-soft { stroke: color-mix(in srgb, var(--relationship-supports) 48%, var(--border)); stroke-dasharray: 3 6; }
+.constellation-node { fill: var(--muted-foreground); opacity: 0.68; }
+.constellation-node-main { fill: var(--primary); opacity: 1; }
+.constellation-node-teal { fill: var(--relationship-supports); opacity: 1; }
+.constellation-node-warm { fill: var(--warm-accent); opacity: 1; }
+.constellation-halo { fill: color-mix(in srgb, var(--relationship-supports) 8%, transparent); stroke: color-mix(in srgb, var(--relationship-supports) 38%, transparent); }
+.constellation-tag {
+  position: absolute;
+  z-index: 1;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
+  padding: 6px 9px;
+  color: var(--muted-foreground);
+  font-family: var(--font-code);
+  font-size: 9px;
+  letter-spacing: 0.02em;
+  box-shadow: var(--shadow-raised);
+}
+.constellation-tag--capture { top: 15%; left: 10%; }
+.constellation-tag--connect { top: 43%; right: 9%; color: var(--relationship-supports); }
+.constellation-tag--understand { bottom: 15%; left: 22%; color: var(--warm-accent); }
+.constellation-caption {
+  position: absolute;
+  right: 16px;
+  bottom: 14px;
+  color: var(--faint-foreground);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+}
 
 .home-capture-card,
 .home-data-card,
@@ -87,6 +204,15 @@
 }
 
 .home-capture-card { margin-bottom: var(--space-5); }
+.home-capture-card { border-color: color-mix(in srgb, var(--primary) 15%, var(--border)); }
+.home-capture-card .home-section-heading > svg {
+  width: 34px;
+  height: 34px;
+  border: 1px solid color-mix(in srgb, var(--primary) 24%, var(--border));
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--primary) 11%, var(--surface));
+  padding: 8px;
+}
 
 .home-section-heading {
   display: flex;
@@ -118,9 +244,11 @@
   color: inherit;
   cursor: pointer;
   text-align: left;
+  transition: padding var(--transition-ui), background var(--transition-ui);
 }
 
 .home-note-row:hover .home-note-copy strong { color: var(--primary); }
+.home-note-row:hover { padding-inline: var(--space-2); background: color-mix(in srgb, var(--primary) 4%, transparent); }
 .home-note-copy { display: grid; min-width: 0; flex: 1; gap: 3px; }
 .home-note-copy strong,
 .home-note-copy small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -146,9 +274,25 @@
 .home-first-note p { margin: var(--space-1) 0 0; color: var(--muted-foreground); font-size: 11px; }
 
 @media (max-width: 760px) {
+  .home-welcome { grid-template-columns: minmax(0, 1fr) minmax(220px, 0.78fr); gap: var(--space-5); }
+  .home-welcome h1 { font-size: clamp(34px, 5.2vw, 46px); }
+  .home-constellation { min-height: 205px; }
   .home-data-grid { grid-template-columns: 1fr; }
   .home-note-row { gap: var(--space-2); }
   .home-note-row time { max-width: 74px; overflow: hidden; text-overflow: ellipsis; }
+}
+
+@media (max-width: 900px) {
+  .home-welcome { grid-template-columns: minmax(0, 0.9fr) minmax(250px, 1fr); gap: var(--space-5); }
+  .home-welcome h1 { font-size: clamp(32px, 4.4vw, 42px); }
+  .home-constellation { min-height: 205px; }
+}
+
+@media (max-width: 560px) {
+  .home-welcome { grid-template-columns: 1fr; gap: var(--space-5); }
+  .home-welcome h1 { font-size: clamp(38px, 10vw, 50px); }
+  .home-welcome-footer { gap: var(--space-4); margin-top: var(--space-5); }
+  .home-constellation { min-height: 190px; border-radius: var(--radius-token-lg); }
 }
 
 @media (max-width: 420px) {

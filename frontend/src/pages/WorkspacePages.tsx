@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { ArrowUpRight, Compass, Inbox } from "lucide-react";
+import { ArrowUpRight, Compass, Inbox, LockKeyhole } from "lucide-react";
 import { lazy, Suspense } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -31,13 +31,52 @@ export function HomePage() {
   return (
     <div className="home-page">
       <header className="home-welcome">
-        <p className="eyebrow">A quieter way to think</p>
-        <h1>{emptyVault ? "Your vault is ready." : "Welcome back to your thinking."}</h1>
-        <p>
-          {emptyVault
-            ? "Capture a first thought. It will be waiting here when you are ready to shape it."
-            : "Pick up a thread, or leave a new thought for later."}
-        </p>
+        <div className="home-welcome-copy">
+          <p className="eyebrow home-eyebrow">
+            <span aria-hidden="true" className="home-eyebrow-mark" />
+            A quieter way to think
+          </p>
+          <h1>
+            {emptyVault ? (
+              <>Start with a thought.<br /><span>See where it leads.</span></>
+            ) : (
+              <>Welcome back to<br /><span>your thinking.</span></>
+            )}
+          </h1>
+          <p>
+            {emptyVault
+              ? "A calm space to capture ideas, connect them, and see what they become."
+              : "Pick up a thread, or leave a new thought for later."}
+          </p>
+          <div className="home-welcome-footer">
+            <Link className="home-brain-link" to="/brain">
+              Explore your Brain <ArrowUpRight aria-hidden="true" size={15} />
+            </Link>
+            <span className="home-private-note">
+              <LockKeyhole aria-hidden="true" size={13} />
+              Your vault stays yours
+            </span>
+          </div>
+        </div>
+        <div aria-hidden="true" className="home-constellation">
+          <svg className="constellation-lines" fill="none" viewBox="0 0 360 236">
+            <path d="M66 151 132 93l75 44 83-75M132 93l17 91 58-47 60 59M207 137l83-75" />
+            <path className="constellation-line-soft" d="m66 151 83 33 58-47 60 12" />
+            <circle className="constellation-node constellation-node-main" cx="132" cy="93" r="7" />
+            <circle className="constellation-node constellation-node-teal" cx="207" cy="137" r="5" />
+            <circle className="constellation-node constellation-node-warm" cx="290" cy="62" r="5" />
+            <circle className="constellation-node" cx="66" cy="151" r="4" />
+            <circle className="constellation-node" cx="149" cy="184" r="4" />
+            <circle className="constellation-node" cx="267" cy="197" r="4" />
+            <circle className="constellation-node" cx="267" cy="59" r="3" />
+            <circle className="constellation-node" cx="290" cy="183" r="3" />
+            <circle className="constellation-halo" cx="207" cy="137" r="15" />
+          </svg>
+          <span className="constellation-tag constellation-tag--capture">Capture</span>
+          <span className="constellation-tag constellation-tag--connect">Connect</span>
+          <span className="constellation-tag constellation-tag--understand">Understand</span>
+          <span className="constellation-caption">Ideas grow better together.</span>
+        </div>
       </header>
       <QuickCaptureBox />
       <HomeRevisit />
