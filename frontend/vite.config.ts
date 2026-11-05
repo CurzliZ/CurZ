@@ -29,6 +29,23 @@ export default defineConfig(({ mode }) => {
       },
     },
   },
+  build: {
+    rolldownOptions: {
+      output: {
+        codeSplitting: {
+          groups: [
+            {
+              name: "codemirror",
+              test: /[\\/]node_modules[\\/](?:@codemirror|@lezer)[\\/]/,
+              minSize: 20_000,
+              maxSize: 250_000,
+              priority: 10,
+            },
+          ],
+        },
+      },
+    },
+  },
   test: {
     environment: "node",
     include: ["tests/**/*.test.ts", "tests/**/*.test.tsx"],
